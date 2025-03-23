@@ -1,0 +1,268 @@
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  transition: all 0.3s ease;
+}
+
+body {
+  width: 100vw;
+  height: 100vh;
+  flex-direction: column;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: #f9f9f9;
+  font-family: "Arial", sans-serif;
+  background-color: black;
+}
+
+.main {
+  width: 335px;
+  height: 530px;
+  flex-direction: column;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border: 1px solid grey;
+  border-radius: 20px;
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+  background-color: white;
+  overflow: hidden;
+}
+
+.main-grid {
+  display: grid;
+  grid-template-rows: repeat(5, 80px);
+  grid-template-columns: repeat(4, 80px);
+  gap: 2px;
+}
+
+input {
+  width: 270px;
+  height: 40px;
+  background-color: transparent;
+  border: 0px solid;
+  outline: none;
+  font-size: 24px;
+  text-align: right;
+  margin-bottom: 10px;
+  padding-right: 10px;
+  transition: all 0.3s ease;
+}
+
+input:focus {
+  transform: scale(1.02);
+}
+
+.icon {
+  width: 330px;
+  display: flex;
+  justify-content: flex-end;
+  align-items: flex-end;
+  border-bottom: 1px solid rgb(218, 216, 216);
+  margin-bottom: 10px;
+  padding: 10px 0;
+}
+
+.remove-button {
+  width: 20px;
+  height: 20px;
+  margin: 15px 0px;
+  cursor: pointer;
+  opacity: 0.7;
+  transition: all 0.2s ease;
+}
+
+.remove-button:hover {
+  opacity: 1;
+  transform: scale(1.1);
+}
+
+.grid-items {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  margin: 5px;
+}
+
+.grid-items p {
+  width: 80%;
+  height: 80%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 5px;
+  border-radius: 50%;
+  font-size: 30px;
+  cursor: pointer;
+  user-select: none;
+  transition: all 0.15s ease;
+}
+
+.grid-items p:hover {
+  transform: scale(1.1);
+}
+
+.grid-items p:active {
+  transform: scale(0.95);
+  opacity: 0.8;
+}
+
+.all-clear {
+  background-color: #f4f4f4;
+  color: red;
+}
+
+.bracket,
+.percentage,
+.divide,
+.multi,
+.sub,
+.add {
+  background-color: #f4f4f4;
+  color: rgb(6, 185, 6);
+}
+
+.equal {
+  background-color: rgb(6, 185, 6);
+  color: #f4f4f4;
+  font-size: 40px;
+  animation: pulse 2s infinite;
+}
+
+@keyframes pulse {
+  0% {
+    box-shadow: 0 0 0 0 rgba(6, 185, 6, 0.4);
+  }
+  70% {
+    box-shadow: 0 0 0 10px rgba(6, 185, 6, 0);
+  }
+  100% {
+    box-shadow: 0 0 0 0 rgba(6, 185, 6, 0);
+  }
+}
+
+.num-one,
+.num-two,
+.num-three,
+.num-four,
+.num-five,
+.num-six,
+.num-seven,
+.num-eight,
+.num-nine,
+.num-zero,
+.unknown,
+.decimal {
+  background-color: rgba(234, 234, 234, 0.973);
+  color: black;
+}
+
+/* Responsive design */
+@media (max-width: 400px) {
+  .main {
+    width: 95vw;
+    height: auto;
+    padding: 15px 0;
+  }
+
+  .main-grid {
+    grid-template-rows: repeat(5, 60px);
+    grid-template-columns: repeat(4, 60px);
+    gap: 2px;
+  }
+
+  .grid-items p {
+    width: 75%;
+    height: 75%;
+    font-size: 24px;
+  }
+
+  input {
+    width: 80%;
+    font-size: 20px;
+  }
+
+  .icon {
+    width: 90%;
+  }
+}
+
+@media (max-width: 320px) {
+  .main-grid {
+    grid-template-rows: repeat(5, 50px);
+    grid-template-columns: repeat(4, 50px);
+  }
+
+  .grid-items p {
+    font-size: 20px;
+  }
+}
+
+/* For larger screens */
+@media (min-width: 768px) {
+  .main {
+    width: 400px;
+    height: 600px;
+  }
+
+  .main-grid {
+    grid-template-rows: repeat(5, 90px);
+    grid-template-columns: repeat(4, 90px);
+  }
+
+  input {
+    width: 350px;
+    height: 50px;
+    font-size: 30px;
+  }
+
+  .icon {
+    width: 390px;
+  }
+}
+
+/* Dark mode support */
+@media (prefers-color-scheme: dark) {
+  body {
+    background-color: #1a1a1a;
+    color: white;
+  }
+
+  .main {
+    background-color: #333;
+    border-color: #444;
+  }
+
+  input {
+    color: white;
+  }
+
+  .num-one,
+  .num-two,
+  .num-three,
+  .num-four,
+  .num-five,
+  .num-six,
+  .num-seven,
+  .num-eight,
+  .num-nine,
+  .num-zero,
+  .unknown,
+  .decimal {
+    background-color: #444;
+    color: white;
+  }
+
+  .all-clear,
+  .bracket,
+  .percentage,
+  .divide,
+  .multi,
+  .sub,
+  .add {
+    background-color: #222;
+  }
+}
